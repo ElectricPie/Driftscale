@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "SolarSystem.generated.h"
 
+class APlanet;
+
 UCLASS()
 class ASolarSystem : public AActor
 {
@@ -16,9 +18,12 @@ public:
 	ASolarSystem();
 
 protected:
+	virtual void BeginPlay() override;
+
+protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Solar System")
 	TObjectPtr<AActor> Sun;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Solar System")
-	TArray<TObjectPtr<AActor>> Planets;
+	TArray<TObjectPtr<APlanet>> Planets;
 
 };

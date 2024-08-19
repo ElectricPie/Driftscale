@@ -32,3 +32,10 @@ void APlanet::Tick(float DeltaTime)
 
 }
 
+void APlanet::BeginPlay()
+{
+	Super::BeginPlay();
+
+	OrbitSpeed = 2.0f * PI / OrbitTime;	
+}
+

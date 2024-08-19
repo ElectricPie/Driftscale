@@ -20,12 +20,16 @@ public:
 	
 	void SetActorToOrbit(AActor* Center) { ActorToOrbit = Center; }
 
+protected:
+	virtual void BeginPlay() override;
+
 private:
 	UPROPERTY(EditAnywhere, Category="Orbit")
 	float OrbitRadius = 100.0f;
-	UPROPERTY(EditAnywhere, Category="Orbit")
-	float OrbitSpeed = 1.0f;
+	UPROPERTY(EditAnywhere, Category="Orbit", meta=(ToolTip="Time in seconds to complete one orbit around the orbit actor"))
+	float OrbitTime = 40.0f;
 	
 	TWeakObjectPtr<AActor> ActorToOrbit;
 	float OrbitAngle = 0.0f;
+	float OrbitSpeed = 0.0f;
 };
